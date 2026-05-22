@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_DOMA" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <DD01V>
+    <DOMNAME>ZDSTATUS1</DOMNAME>
+    <DDLANGUAGE>D</DDLANGUAGE>
+    <DATATYPE>CHAR</DATATYPE>
+    <LENG>000002</LENG>
+    <OUTPUTLEN>000002</OUTPUTLEN>
+    <VALEXI>X</VALEXI>
+    <DDTEXT>Status</DDTEXT>
+    <DOMMASTER>D</DOMMASTER>
+   </DD01V>
+   <DD07V_TAB>
+    <DD07V>
+     <DOMNAME>ZDSTATUS1</DOMNAME>
+     <VALPOS>0001</VALPOS>
+     <DDLANGUAGE>D</DDLANGUAGE>
+     <DOMVALUE_L>BO</DOMVALUE_L>
+     <DDTEXT>Bestellung nicht bezahlt</DDTEXT>
+    </DD07V>
+    <DD07V>
+     <DOMNAME>ZDSTATUS1</DOMNAME>
+     <VALPOS>0002</VALPOS>
+     <DDLANGUAGE>D</DDLANGUAGE>
+     <DOMVALUE_L>BB</DOMVALUE_L>
+     <DDTEXT>Bestellung bezahlt</DDTEXT>
+    </DD07V>
+    <DD07V>
+     <DOMNAME>ZDSTATUS1</DOMNAME>
+     <VALPOS>0003</VALPOS>
+     <DDLANGUAGE>D</DDLANGUAGE>
+     <DOMVALUE_L>BA</DOMVALUE_L>
+     <DDTEXT>Bestellung ausgeliefert</DDTEXT>
+    </DD07V>
+    <DD07V>
+     <DOMNAME>ZDSTATUS1</DOMNAME>
+     <VALPOS>0004</VALPOS>
+     <DDLANGUAGE>D</DDLANGUAGE>
+     <DOMVALUE_L>BN</DOMVALUE_L>
+     <DDTEXT>Bestellung neu</DDTEXT>
+    </DD07V>
+    <DD07V>
+     <DOMNAME>ZDSTATUS1</DOMNAME>
+     <VALPOS>0005</VALPOS>
+     <DDLANGUAGE>D</DDLANGUAGE>
+     <DOMVALUE_L>SO</DOMVALUE_L>
+     <DDTEXT>Stornierung, Bestellung nicht bezahlt</DDTEXT>
+    </DD07V>
+    <DD07V>
+     <DOMNAME>ZDSTATUS1</DOMNAME>
+     <VALPOS>0006</VALPOS>
+     <DDLANGUAGE>D</DDLANGUAGE>
+     <DOMVALUE_L>SB</DOMVALUE_L>
+     <DDTEXT>Stornierung, Bestellung bezahlt</DDTEXT>
+    </DD07V>
+    <DD07V>
+     <DOMNAME>ZDSTATUS1</DOMNAME>
+     <VALPOS>0007</VALPOS>
+     <DDLANGUAGE>D</DDLANGUAGE>
+     <DOMVALUE_L>SA</DOMVALUE_L>
+     <DDTEXT>Stornierung, Bestellung ausgeliefert</DDTEXT>
+    </DD07V>
+    <DD07V>
+     <DOMNAME>ZDSTATUS1</DOMNAME>
+     <VALPOS>0008</VALPOS>
+     <DDLANGUAGE>D</DDLANGUAGE>
+     <DOMVALUE_L>SN</DOMVALUE_L>
+     <DDTEXT>Stornierung, Bestellung neu</DDTEXT>
+    </DD07V>
+   </DD07V_TAB>
+  </asx:values>
+ </asx:abap>
+</abapGit>

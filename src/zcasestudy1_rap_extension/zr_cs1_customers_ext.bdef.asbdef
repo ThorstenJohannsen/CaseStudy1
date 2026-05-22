@@ -1,0 +1,12 @@
+extension implementation in class zbp_r_cs1_customers_ext unique;
+
+extend behavior for CUSTOMERS
+{
+
+
+  mapping for zcs1_customers corresponding
+    {
+      zzvip_zem = ZZVIP_ZEM;
+    }
+
+}

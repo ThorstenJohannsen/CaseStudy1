@@ -1,0 +1,15 @@
+@Metadata.layer: #LOCALIZATION
+annotate view zcs1cust_orders_r with
+  parameters
+    @Consumption.valueHelpDefinition: [
+        { entity: { name: 'zcs1Customers_H', element: 'Customerid' } }]
+    @EndUserText.label: 'Bitte Kundennummer eingeben:'
+    p_customerid
+    
+{
+  @Consumption.valueHelpDefinition: [
+      { entity: { name: 'zcs1Customers_H', element: 'Customerid' } }]
+  @EndUserText.label: 'KdNr:'
+  @UI.lineItem: [{ position: 10 }]
+  Customerid;
+}

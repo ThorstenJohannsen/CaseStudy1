@@ -1,0 +1,6 @@
+@EndUserText.label: 'ZR_CS1_STATISTIC'
+@MappingRole: true
+define role ZR_CS1_STATISTIC {
+  grant select on ZR_CS1_STATISTIC
+  where TRUE;
+}

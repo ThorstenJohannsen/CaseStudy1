@@ -1,0 +1,100 @@
+managed implementation in class ZBP_R_CS1_CUSTOMERS unique;
+strict ( 2 );
+with draft;
+extensible;
+define behavior for ZR_CS1_CUSTOMERS alias CUSTOMERS
+persistent table zcs1_customers
+extensible
+draft table zcs1_customers_d
+etag master LocalLastChangedAt
+lock master total etag LastChangedAt
+authorization master ( global )
+late numbering
+{
+
+  field ( readonly ) CustomerId;
+  field ( readonly )
+  City,
+  Country,
+  CreatedBy,
+  CreatedAt,
+  LocalLastChangedBy,
+  LocalLastChangedAt,
+  LastChangedAt;
+
+
+// --- HIER DEN SIDE EFFECT EINFÜGEN !
+ side effects {
+  field SalesVolume affects field SalesVolumeTarget;
+  field Currency affects field SalesVolumeTarget;
+  field CurrencyTarget affects field SalesVolumeTarget;
+}
+
+  create;
+  update;
+  delete;
+
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Edit;
+  draft action Resume;
+
+  static action CancelOrders parameter ZCS1_CUSTOMER_SEL result [1] $self; // <-- Button Cancel Orders
+  action ShowStatistics result [1] $self; // <-- Button Show Statistics
+
+  draft determine action Prepare
+  {
+    //validation validateEmail;
+    //validation validatePhone;
+    //validation validateFax;
+    validation validateCurrencyTarget;
+    determination Determinate_getCity;
+    //    determination updateOrdersOnCurrencyChange;
+    determination SalesVolume;
+    determination setDefaults;
+  }
+  validation validateEmail on save { field Email; }
+  validation validatePhone on save { field Phone; }
+  validation validateFax on save { field Fax; }
+  validation validateCurrencyTarget on save { create; update; field CurrencyTarget; }
+  // validation validateVip on save { field zzvip_zem; }
+  determination Determinate_getCity on save {  create; update; field Postcode; }
+  //  determination setDefaultCurrencyTarget on modify { create; }
+  //  determination updateOrdersOnCurrencyChange on save { field CurrencyTarget; }
+  determination SalesVolume on save {  create; update; field SalesVolume, Currency, CurrencyTarget; }
+  determination trimEmail on modify { field Email; }
+  determination setDefaults on save { create; } //field Language;
+
+  mapping for zcs1_customers corresponding extensible
+    {
+      Customerid         = CUSTOMERID;
+      Salutation         = SALUTATION;
+      LastName           = LAST_NAME;
+      FirstName          = FIRST_NAME;
+      Company            = COMPANY;
+      Street             = STREET;
+      City               = CITY;
+      Country            = COUNTRY;
+      Postcode           = POSTCODE;
+      AccLock            = ACC_LOCK;
+      LastDate           = LAST_DATE;
+      SalesVolume        = SALES_VOLUME;
+      SalesVolumeTarget  = SALES_VOLUME_TARGET;
+      ChangeRateDate     = CHANGE_RATE_DATE;
+      Fax                = FAX;
+      Phone              = PHONE;
+      Email              = EMAIL;
+      Url                = URL;
+      Currency           = CURRENCY;
+      CurrencyTarget     = CURRENCY_TARGET;
+      Language           = LANGUAGE;
+      Weblogin           = WEBLOGIN;
+      Webpw              = WEBPW;
+      Memo               = MEMO;
+      CreatedBy          = CREATED_BY;
+      CreatedAt          = CREATED_AT;
+      LocalLastChangedBy = LOCAL_LAST_CHANGED_BY;
+      LocalLastChangedAt = LOCAL_LAST_CHANGED_AT;
+      LastChangedAt      = LAST_CHANGED_AT;
+    }
+}

@@ -1,0 +1,12 @@
+@EndUserText: {
+  label: 'Service-Definition für ZC_CS1_SERVICE'
+}
+@ObjectModel: {
+  leadingEntity: {
+    name: 'ZC_CS1_SERVICE'
+  }
+}
+define service ZUI_CS1_SERVICE_O4
+  provider contracts odata_v4_ui {
+  expose ZC_CS1_SERVICE as KDService;
+}

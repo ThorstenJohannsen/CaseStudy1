@@ -1,0 +1,68 @@
+managed implementation in class ZBP_R_CS1_CUSTORDERS unique;
+strict ( 2 );
+with draft;
+extensible;
+define behavior for ZR_CS1_CUSTORDERS alias CUSTORDERS
+persistent table ZCS1_CUSTORDERS
+extensible
+draft table ZCS1_CSTORDERS_D
+etag master LocalLastChangedAt
+lock master total etag LastChangedAt
+authorization master( global )
+{
+  field ( mandatory : create )
+   Orderid;
+
+  field ( readonly )
+//   Currency_Target,
+   CreatedBy,
+   CreatedAt,
+   LocalLastChangedBy,
+   LocalLastChangedAt,
+   LastChangedAt;
+
+  field ( readonly : update )
+   Orderid;
+
+
+
+
+
+  create;
+  update;
+  delete;
+
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Edit;
+  draft action Resume;
+  draft determine action Prepare
+  {
+
+    determination determinatedgetOrderTotal; }
+
+
+  determination determinatedgetOrderTotal on save {
+    field OrderTotal, Discount, Currency; }
+
+
+  mapping for ZCS1_CUSTORDERS corresponding extensible
+
+  {
+    Orderid = orderid;
+    Customerid = customerid;
+    OrderDate = order_date;
+    OrderTotal = order_total;
+    Discount = discount;
+    Info = info;
+    Status = status;
+//    Currency = currency;
+//    OrderTotalTarget = order_total_target;
+    CreatedBy = created_by;
+    CreatedAt = created_at;
+    LocalLastChangedBy = local_last_changed_by;
+    LocalLastChangedAt = local_last_changed_at;
+    LastChangedAt = last_changed_at;
+  }
+
+}
