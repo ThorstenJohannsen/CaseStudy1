@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_MSAG" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <T100A>
+    <ARBGB>Z04_FT_MSG_SFM</ARBGB>
+    <MASTERLANG>D</MASTERLANG>
+    <STEXT>Abschlussaufgabe 401 Message Text S/FM</STEXT>
+   </T100A>
+   <T100>
+    <T100>
+     <SPRSL>D</SPRSL>
+     <ARBGB>Z04_FT_MSG_SFM</ARBGB>
+     <MSGNR>010</MSGNR>
+     <TEXT>Die Fahrzeugkapazität unter 2000kg =&gt; Model &amp;1 und Zulassungsdatum &amp;2 .</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>D</SPRSL>
+     <ARBGB>Z04_FT_MSG_SFM</ARBGB>
+     <MSGNR>015</MSGNR>
+     <TEXT>Das Fahrzeug H: &amp;1 M: &amp;2 mit Z-datum &amp;3, schon vorhanden!</TEXT>
+    </T100>
+   </T100>
+  </asx:values>
+ </asx:abap>
+</abapGit>
