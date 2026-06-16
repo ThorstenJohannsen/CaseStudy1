@@ -1,0 +1,26 @@
+projection;
+strict ( 2 );
+use draft;
+
+define behavior for ZCS1_C_CUSTOMER_T200 alias Customer
+{
+  use create;
+  use update;
+  use delete;
+
+  use action edit;
+  use action activate;
+  use action discard;
+  use action resume;
+  use action prepare;
+
+  use association _Orders { create; with draft; }
+}
+
+define behavior for ZCS1_C_CUSTORDER_T200 alias Order
+{
+  use update;
+  use delete;
+
+  use association _Customer { with draft; }
+}

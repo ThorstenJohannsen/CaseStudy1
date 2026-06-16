@@ -1,0 +1,5 @@
+@EndUserText.label: 'ZCS1_UI_CUSTOMER_T200'
+define service ZCS1_UI_CUSTOMER_T200 {
+  expose ZCS1_C_CUSTOMER_T200  as Customer;
+  expose ZCS1_C_CUSTORDER_T200 as Orders;
+}

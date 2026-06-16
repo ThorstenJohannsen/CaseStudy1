@@ -1,0 +1,5 @@
+@EndUserText.label: 'ZC_CS1_SERVICE1'
+@MappingRole: true
+define role ZC_CS1_SERVICE1 {
+  grant select on ZC_CS1_SERVICE1;
+}

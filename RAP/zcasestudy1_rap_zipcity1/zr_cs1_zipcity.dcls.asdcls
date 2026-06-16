@@ -1,0 +1,6 @@
+@EndUserText.label: 'ZR_CS1_ZIPCITY'
+@MappingRole: true
+define role ZR_CS1_ZIPCITY {
+  grant select on ZR_CS1_ZIPCITY
+  where TRUE;
+}

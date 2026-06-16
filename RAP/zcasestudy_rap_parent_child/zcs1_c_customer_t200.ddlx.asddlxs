@@ -1,0 +1,64 @@
+@Metadata.layer: #CUSTOMER
+@UI: { 
+  headerInfo: { 
+    typeName: 'Kunde', 
+    typeNamePlural: 'Kunden', 
+    title: { type: #STANDARD, value: 'CustomerID' }, // Zeigt die Kundennummer fett oben an
+    description: { type: #STANDARD, value: 'Company' } // Zeigt die Firma direkt darunter an
+  } 
+}
+annotate view ZCS1_C_CUSTOMER_T200 with
+{
+  @UI.facet: [
+    { id: 'KundenDetails', type: #COLLECTION, label: 'Kundeninformationen', position: 10 },
+    { id: 'Allgemein', targetQualifier: 'AllgemeinGroup', parentId: 'KundenDetails', type: #FIELDGROUP_REFERENCE, label: 'Allgemeine Daten', position: 10 },
+    { id: 'Kontakt', targetQualifier: 'KontaktGroup', parentId: 'KundenDetails', type: #FIELDGROUP_REFERENCE, label: 'Kontaktdaten', position: 20 },
+    { id: 'Admin', targetQualifier: 'AdminGroup', parentId: 'KundenDetails', type: #FIELDGROUP_REFERENCE, label: 'Administrative Daten', position: 30 },
+    { id: 'Bestellungen', targetElement: '_Orders', type: #LINEITEM_REFERENCE, label: 'Bestellungen des Kunden', position: 20 }
+  ]
+
+  @UI: { lineItem: [{ position: 10 }], identification: [{ position: 10 }], selectionField: [{ position: 10 }] }
+  CustomerID;
+
+  @UI: { lineItem: [{ position: 20 }], fieldGroup: [{ qualifier: 'AllgemeinGroup', position: 10 }] }
+  FirstName;
+
+  @UI: { lineItem: [{ position: 30 }], fieldGroup: [{ qualifier: 'AllgemeinGroup', position: 20 }] }
+  LastName;
+
+  @UI: { lineItem: [{ position: 40 }], fieldGroup: [{ qualifier: 'AllgemeinGroup', position: 30 }], selectionField: [{ position: 20 }] }
+  Company;
+
+  @UI: { lineItem: [{ position: 50 }], fieldGroup: [{ qualifier: 'AllgemeinGroup', position: 40 }] }
+  City;
+
+  @UI: { fieldGroup: [{ qualifier: 'AllgemeinGroup', position: 50 }] }
+  Country;
+
+  @UI: { lineItem: [{ position: 60 }], fieldGroup: [{ qualifier: 'KontaktGroup', position: 10 }] }
+  Email;
+
+  @UI: { fieldGroup: [{ qualifier: 'KontaktGroup', position: 20 }] }
+  Phone;
+
+  @UI: { fieldGroup: [{ qualifier: 'AllgemeinGroup', position: 60 }] }
+  SalesVolume;
+
+  @UI: { fieldGroup: [{ qualifier: 'AllgemeinGroup', position: 70 }] }
+  Language;
+
+  @UI: { fieldGroup: [{ qualifier: 'AllgemeinGroup', position: 80 }] }
+  Url;
+
+  @UI: { fieldGroup: [{ qualifier: 'AdminGroup', position: 10 }] }
+  CreatedBy;
+
+  @UI: { fieldGroup: [{ qualifier: 'AdminGroup', position: 20 }] }
+  CreatedAt;
+
+  @UI: { fieldGroup: [{ qualifier: 'AdminGroup', position: 30 }] }
+  LastChangedBy;
+
+  @UI: { fieldGroup: [{ qualifier: 'AdminGroup', position: 40 }] }
+  LastChangedAt;
+}

@@ -1,0 +1,53 @@
+@Metadata.layer: #PARTNER
+annotate view ZC_CS1_CUSTOMERS with
+{
+
+  @UI.masked
+  Webpw;
+   
+  @Consumption: {
+       valueHelpDefinition: [ {
+         entity.name: 'I_Country',
+          entity.element: 'Country',
+         useForValidation: true
+       } ]
+      }
+  Country;
+  @Consumption.valueHelpDefinition: [{
+    entity: {
+        name: 'ZCS1_I_ZIPCITY', // Die Wertehilfe-Entität
+        element: 'Postcode'    // Das Hauptfeld in der Wertehilfe
+    },
+    // Hier können mehrere Elemente gemappt werden
+    additionalBinding: [
+  //        { localElement: 'Postcode', element: 'Postcode', usage: #FILTER_AND_RESULT },
+        { localElement: 'City', element: 'City', usage: #RESULT }
+  //        { localElement: 'Country', element: 'Country', usage: #RESULT } // falls wir Country auch füllen wollen
+    ]
+  }]
+  Postcode;
+  @Consumption: {
+        valueHelpDefinition: [ {
+          entity.element: 'Currency',
+          entity.name: 'I_CurrencyStdVH',
+          useForValidation: true
+        } ]
+      }
+  Currency;
+  @Consumption: {
+        valueHelpDefinition: [ {
+          entity.element: 'Currency',
+          entity.name: 'I_CurrencyStdVH',
+          useForValidation: true
+        } ]
+      }
+  CurrencyTarget;
+  @Consumption.valueHelpDefinition: [{ entity: { name: 'I_Language', element: 'Language' } }] 
+  Language;
+  @UI.lineItem: [{ position: 60, importance: #MEDIUM, label: 'VIP Kunde' }]
+  @UI.identification: [{ position: 60, label: 'VIP Kunde' }]
+  @UI.fieldGroup: [{ qualifier: 'General', position: 60, label: 'VIP Kunde' }]
+  @UI.selectionField: [ { position: 45   } ]
+  @EndUserText.label: 'VIP Kunde'
+  Zzvip_ZEM;
+}

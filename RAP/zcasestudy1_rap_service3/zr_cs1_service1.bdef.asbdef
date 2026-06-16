@@ -1,0 +1,51 @@
+managed implementation in class ZBP_R_CS1_SERVICE1 unique;
+strict ( 2 );
+with draft;
+extensible;
+define behavior for ZR_CS1_SERVICE1 alias ZrCs1Service1
+persistent table ZCS1_SERVICE1
+extensible
+draft table ZCS1_SERVICE1_D
+etag master LocalLastChangedAt
+lock master total etag LastChangedAt
+authorization master( global )
+{
+  field ( mandatory : create )
+   ID;
+
+  field ( readonly )
+   CreatedBy,
+   CreatedAt,
+   LocalLastChangedBy,
+   LocalLastChangedAt,
+   DefaultValue,
+   LastChangedAt;
+
+  field ( readonly : update )
+   ID;
+
+
+  create;
+  update;
+  delete;
+
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Edit;
+  draft action Resume;
+  draft determine action Prepare;
+
+  mapping for ZCS1_SERVICE1 corresponding extensible
+  {
+    ID = ID;
+    Active = ACTIVE;
+    UserValue = USER_VALUE;
+    DefaultValue = DEFAULT_VALUE;
+    CreatedBy = CREATED_BY;
+    CreatedAt = CREATED_AT;
+    LocalLastChangedBy = LOCAL_LAST_CHANGED_BY;
+    LocalLastChangedAt = LOCAL_LAST_CHANGED_AT;
+    LastChangedAt = LAST_CHANGED_AT;
+  }
+
+}

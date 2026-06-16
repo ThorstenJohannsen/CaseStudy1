@@ -1,0 +1,48 @@
+managed implementation in class ZBP_R_CS1_ZIPCITY unique;
+strict ( 2 );
+with draft;
+extensible;
+define behavior for ZR_CS1_ZIPCITY alias ZIPCITY
+persistent table ZCS1_ZIPCITY
+extensible
+draft table ZCS1_ZIPCITY_D
+etag master LocalLastChangedAt
+lock master total etag LastChangedAt
+authorization master( global )
+{
+  field ( mandatory : create )
+   Postcode;
+
+  field ( readonly )
+   CreatedBy,
+   CreatedAt,
+   LocalLastChangedBy,
+   LocalLastChangedAt,
+   LastChangedAt;
+
+  field ( readonly : update )
+   Postcode;
+
+
+  create;
+  update;
+  delete;
+
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Edit;
+  draft action Resume;
+  draft determine action Prepare;
+
+  mapping for ZCS1_ZIPCITY corresponding extensible
+  {
+    Postcode = POSTCODE;
+    City = CITY;
+    CreatedBy = CREATED_BY;
+    CreatedAt = CREATED_AT;
+    LocalLastChangedBy = LOCAL_LAST_CHANGED_BY;
+    LocalLastChangedAt = LOCAL_LAST_CHANGED_AT;
+    LastChangedAt = LAST_CHANGED_AT;
+  }
+
+}

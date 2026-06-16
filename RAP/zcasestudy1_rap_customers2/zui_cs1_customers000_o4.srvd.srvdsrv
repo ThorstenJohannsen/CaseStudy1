@@ -1,0 +1,11 @@
+@EndUserText: {
+  label: 'Service-Definition für ZC_CS1_CUSTOMERS000'
+}
+@ObjectModel: {
+  leadingEntity: {
+    name: 'ZC_CS1_CUSTOMERS000'
+  }
+}
+define service ZUI_CS1_CUSTOMERS000_O4 provider contracts odata_v4_ui {
+  expose ZC_CS1_CUSTOMERS000 as CUSTOMERS;
+}

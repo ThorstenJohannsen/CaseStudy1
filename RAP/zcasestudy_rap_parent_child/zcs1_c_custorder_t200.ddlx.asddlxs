@@ -1,0 +1,37 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: { 
+    typeName: 'Bestellung', 
+    typeNamePlural: 'Bestellungen', 
+    title: { type: #STANDARD, value: 'OrderID' } 
+  }
+}
+annotate view ZCS1_C_CUSTORDER_T200 with
+{
+  // Erzeugt den Detailbereich, wenn man im UI auf eine einzelne Bestellung klickt
+  @UI.facet: [
+    { id: 'BestellDetails', type: #IDENTIFICATION_REFERENCE, label: 'Bestellinformationen', position: 10 }
+  ]
+
+  // Spalten in der Tabelle beim Kunden (lineItem) & Felder auf der Detailseite (identification)
+  @UI: { lineItem: [{ position: 10 }], identification: [{ position: 10 }] }
+  OrderID;
+
+  @UI: { lineItem: [{ position: 20 }], identification: [{ position: 20 }] }
+  OrderDate;
+
+  @UI: { lineItem: [{ position: 30 }], identification: [{ position: 30 }] }
+  OrderTotal;
+  
+  @UI: { lineItem: [{ position: 40 }], identification: [{ position: 30 }] }
+  Currency;
+
+  @UI: { lineItem: [{ position: 50 }], identification: [{ position: 40 }] }
+  Status;
+
+  @UI: { lineItem: [{ position: 60 }], identification: [{ position: 50 }] }
+  Discount;
+
+  @UI: { identification: [{ position: 70 }] }
+  Info;
+}

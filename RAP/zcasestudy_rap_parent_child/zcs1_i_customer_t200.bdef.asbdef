@@ -1,0 +1,88 @@
+managed implementation in class zbp_cs1_i_customer_t200 unique;
+strict ( 2 ); // Zwingend erforderlich für ABAP Cloud
+with draft;
+
+define behavior for ZCS1_I_CUSTOMER_T200 alias Customer
+persistent table zcs1_customers
+draft table zcs1_customer_d
+lock master
+total etag LastChangedAt
+authorization master ( instance )
+{
+  create;
+  update;
+  delete;
+
+  // Diese 4 Zeilen fehlen bei Ihnen zwingend für den Draft-Mechanismus:
+  draft action edit;
+  draft action activate optimized;
+  draft action discard;
+  draft action resume;
+  draft determine action prepare;
+
+  field ( readonly ) CustomerID;
+  field ( readonly ) CreatedBy, CreatedAt, LastChangedBy, LastChangedAt;
+
+  association _Orders { create; with draft; }
+
+  // Verknüpft Ihre CDS-CamelCase-Namen mit den snake_case-Tabellenfeldern
+  mapping for zcs1_customers
+  {
+    CustomerID = customerid;
+    Salutation = salutation;
+    LastName = last_name;
+    FirstName = first_name;
+    Company = company;
+    Street = street;
+    City = city;
+    Country = country;
+    Postcode = postcode;
+    AccLock = acc_lock;
+    LastDate = last_date;
+    SalesVolume = sales_volume;
+    SalesVolumeTarget = sales_volume_target;
+    ChangeRateDate = change_rate_date;
+    Fax = fax;
+    Phone = phone;
+    Email = email;
+    // Hier die exakten Feldnamen aus Ihrem /lrn/s_admin Include eintragen:
+    CreatedBy = created_by;
+    CreatedAt = created_at;
+    LastChangedBy = local_last_changed_by;
+    LastChangedAt = last_changed_at;
+  }
+}
+
+define behavior for ZCS1_I_CUSTORDER_T200 alias Order
+persistent table zcs1_custorders
+draft table zcs1_order_d
+lock dependent by _Customer
+authorization dependent by _Customer
+{
+
+  update;
+  delete;
+
+  field ( readonly ) OrderID, CustomerID;
+  field ( readonly ) CreatedBy, CreatedAt, LastChangedBy, LastChangedAt;
+
+  association _Customer { with draft; }
+
+  // Verknüpft Ihre Child-CDS-Namen mit den Tabellenfeldern
+  mapping for zcs1_custorders
+  {
+    OrderID = orderid;
+    CustomerID = customerid;
+    OrderDate = order_date;
+    OrderTotal = order_total;
+    Discount = discount;
+    Info = info;
+    Status = status;
+    Currency = currency;
+    // Hier die exakten Feldnamen aus Ihrem /lrn/s_admin Include eintragen:
+    CreatedBy = created_by;
+    CreatedAt = created_at;
+    LastChangedBy = local_last_changed_by;
+    LastChangedAt = last_changed_at;
+  }
+}

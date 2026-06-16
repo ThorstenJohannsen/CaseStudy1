@@ -1,0 +1,18 @@
+CLASS lsc_ZR_CS1_CUSTOMERS DEFINITION INHERITING FROM cl_abap_behavior_saver.
+  PROTECTED SECTION.
+
+"    METHODS adjust_numbers REDEFINITION.
+
+    METHODS cleanup_finalize REDEFINITION.
+
+ENDCLASS.
+
+CLASS lsc_ZR_CS1_CUSTOMERS IMPLEMENTATION.
+
+"  METHOD adjust_numbers.
+"  ENDMETHOD.
+
+  METHOD cleanup_finalize.
+  ENDMETHOD.
+
+ENDCLASS.

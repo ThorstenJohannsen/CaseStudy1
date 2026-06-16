@@ -1,0 +1,11 @@
+@EndUserText.label: 'PLZ access'
+@MappingRole: true
+define role Z1_PLZCODE {
+    grant select
+            on   ZR_CS1_CUSTOMERS // ← Basis-View
+            where ( Postcode )  = aspect pfcg_auth( Z1POSTCODE ,
+                                                    Z1PLZ  ,
+                                                    ACTVT = '03' );
+                        
+}
+
