@@ -1,4 +1,4 @@
-# SAP ABAP Cloud Customer Management
+# SAP ABAP Cloud Development Showcase
 
 Business-oriented SAP ABAP Cloud application demonstrating
 modern RAP development, CDS Views, OData Services,
@@ -32,7 +32,7 @@ demonstrating modern SAP ABAP Cloud development.
 - Parent-Child Business Objects
 - Object-Oriented ABAP
 - SQL
-- Dynamic Programming
+- Dynamic ABAP Programming (RTTI/RTTC)
 - Interfaces
 
 ---
@@ -101,16 +101,4 @@ maintainability and extensibility.
 
 ## Motivation
 
-My professional background is in Business Process Analysis,
-database development and process automation.
-
-This repository demonstrates how business requirements can
-be translated into clean and maintainable SAP ABAP Cloud
-solutions.
-
----
-
-## Technologies
-
-SAP ABAP Cloud • RAP • CDS Views • OData • SQL • Fiori
-Elements • Object-Oriented ABAP
+This repository documents my transition from Business Analysis into SAP ABAP Cloud development and demonstrates how business requirements can be translated into maintainable, service-oriented SAP applications.
